@@ -83,3 +83,18 @@ Todo
 * Not particularily optimzed for startup time.
 * Better docs
 
+Run Locally
+---
+```bash
+docker run -v ~/.../data:/tmp/data -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=localhost --env ADVERTISED_PORT=9092 user/kafka
+```
+
+```bash
+docker exec -it container_name bash
+kafka-console-producer.sh --broker-list $KAFKA --topic topic_name < /tmp/data/data.json
+```
+
+```bash
+docker exec -it container_name bash
+kafka-console-consumer.sh --zookeeper $ZOOKEEPER --topic test
+```

@@ -24,4 +24,8 @@ ADD supervisor/kafka.conf supervisor/zookeeper.conf /etc/supervisor/conf.d/
 # 2181 is zookeeper, 9092 is kafka
 EXPOSE 2181 9092
 
+ENV PATH "$PATH":/opt/kafka_2.11-0.10.1.0/bin
+ENV KAFKA=localhost:9092
+ENV ZOOKEEPER=localhost:2181
+
 CMD ["supervisord", "-n"]
